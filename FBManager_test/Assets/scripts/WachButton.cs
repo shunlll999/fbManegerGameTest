@@ -8,7 +8,7 @@ public class WachButton : MonoBehaviour {
 
 	public delegate void OnActionClick( WachButton unit );
 	public event OnActionClick OnClick;
-	public string requestForm;
+	public NetWorkController.Requests requestForm;
 	private EventTrigger eventTrigger;
 	private Button currentBtn;
 

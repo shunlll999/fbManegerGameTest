@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class PostData{
 
-	public string requestFor = "chooseDrill";
-	public int score = -1;
+    public NetWorkController.Requests requestFor = NetWorkController.Requests.Bonus;
+    public int score = -1;
 
 }
 
@@ -32,13 +33,15 @@ public class NetWorkController : MonoBehaviour {
 
 	}
 
-	public enum Events{ GET_DATA_EVENT, POST_DATA_EVENT }  
-	public delegate void RequestData( JSONObject obj );
+	public enum Events{ GET_DATA_EVENT, POST_DATA_EVENT }
+    public enum Requests { Bonus, Physio, Quick, Report, ChooseDrills, SelectPlayer, StartTraning }
+
+    public delegate void RequestData( JSONObject obj );
 	RequestData callBack;
-	string url = "http://localhost:8100/values";
+	string url = "http://localhost:3000/api/values";
 	PostData postData;
 
-	public void GetData( Events eventstring , string parameters, PostData postData , RequestData callBack ){
+	public void GetData( Events eventstring , Requests parameters, PostData postData , RequestData callBack ){
 		this.callBack = callBack;
 		if( postData != null ){
 			this.postData = postData;
@@ -77,7 +80,7 @@ public class NetWorkController : MonoBehaviour {
 		// Assuming the perl script manages high scores for different games
 		form.AddField( "game", "MyGameName" );
 		// The name of the player submitting the scores
-		form.AddField( "request", postData.requestFor );
+		form.AddField( "request", (int)postData.requestFor );
 		// The score
 		form.AddField( "score", postData.score );
 

@@ -3,8 +3,8 @@ using System.Collections;
 
 public class FooterMenuController : MonoBehaviour {
 
-	//WachButton is custum Button with my custom event of button
-	public WachButton bonus_btn;
+    //WachButton is custum Button with my custom event of button
+    public WachButton bonus_btn;
 	public WachButton physio_btn;
 	public WachButton quick_btn;
 	public WachButton report_btn;
