@@ -38,7 +38,7 @@ public class NetWorkController : MonoBehaviour {
 
     public delegate void RequestData( JSONObject obj );
 	RequestData callBack;
-	string url = "http://localhost:3000/api/values";
+	string url = "http://localhost:2559";
 	PostData postData;
 
 	public void GetData( Events eventstring , Requests parameters, PostData postData , RequestData callBack ){
@@ -50,7 +50,7 @@ public class NetWorkController : MonoBehaviour {
 
 		switch( eventstring ){
 			case Events.GET_DATA_EVENT:
-				StartCoroutine("LoadData", url+"/"+parameters);
+				StartCoroutine("LoadData", url+"/"+(int)parameters);
 			break;
 
 			case Events.POST_DATA_EVENT:
@@ -74,7 +74,7 @@ public class NetWorkController : MonoBehaviour {
 
 	IEnumerator PostData( string url ){
 
-		Debug.Log(url);
+		Debug.Log(url + "Request "+(int)postData.requestFor );
 		// Create a form object for sending high score data to the server
 		WWWForm form = new WWWForm();
 		// Assuming the perl script manages high scores for different games
