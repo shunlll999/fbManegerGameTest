@@ -35,7 +35,7 @@ public class NetWorkController : MonoBehaviour {
 	public enum Events{ GET_DATA_EVENT, POST_DATA_EVENT }  
 	public delegate void RequestData( JSONObject obj );
 	RequestData callBack;
-	string url = "http://192.168.1.5:2559";
+	string url = "http://localhost:8100/values";
 	PostData postData;
 
 	public void GetData( Events eventstring , string parameters, PostData postData , RequestData callBack ){
