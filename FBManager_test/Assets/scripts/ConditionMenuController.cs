@@ -32,7 +32,7 @@ public class ConditionMenuController : MonoBehaviour {
 	}
 
 	public void SendDataComplete( JSONObject obj ){
-		Debug.Log(obj);
+		Debug.Log("Success!");
 	}
 
 	

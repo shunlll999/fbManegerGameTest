@@ -102,11 +102,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BonusData.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="MyHttpConfiguration.cs" />
     <Compile Include="OwinCommunicationListener.cs" />
+    <Compile Include="PhysioData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="QuickTraning.cs" />
+    <Compile Include="Reports.cs" />
+    <Compile Include="ResultData.cs" />
     <Compile Include="ServiceEventSource.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="StatelessGame.cs" />

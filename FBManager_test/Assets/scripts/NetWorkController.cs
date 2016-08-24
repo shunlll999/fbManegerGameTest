@@ -34,9 +34,9 @@ public class NetWorkController : MonoBehaviour {
 	}
 
 	public enum Events{ GET_DATA_EVENT, POST_DATA_EVENT }
-    public enum Requests { Bonus, Physio, Quick, Report, ChooseDrills, SelectPlayer, StartTraning }
+    public enum Requests { Bonus, Physio, Quick, Reports, ChooseDrills, SelectPlayer, StartTraning }
 
-    public delegate void RequestData( JSONObject obj );
+    public delegate void RequestData( JSONObject obj = null );
 	RequestData callBack;
 	string url = "http://localhost:3000/api/values";
 	PostData postData;
@@ -50,11 +50,11 @@ public class NetWorkController : MonoBehaviour {
 
 		switch( eventstring ){
 			case Events.GET_DATA_EVENT:
-				StartCoroutine("LoadData", url+"/"+(int)parameters);
+				StartCoroutine("LoadData", url+"/"+parameters.ToString());
 			break;
 
 			case Events.POST_DATA_EVENT:
-				StartCoroutine("PostData", url);
+				StartCoroutine("PostData", url + "/" + parameters.ToString());
 			break;
 		}
 
@@ -93,9 +93,12 @@ public class NetWorkController : MonoBehaviour {
 		if(!string.IsNullOrEmpty(download.error)) {
 			Debug.Log( "Error downloading: " + download.error );
 		} else {
-			JSONObject obj = new JSONObject(download.text);
-			callBack(obj);
-		}
+            //JSONObject obj = new JSONObject(download.text);
+            //callBack(obj);
+            Debug.Log(download);
+            callBack();
+
+        }
 
 	}
 

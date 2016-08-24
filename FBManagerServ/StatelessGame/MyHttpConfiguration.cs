@@ -21,7 +21,7 @@ namespace StatelessGame
         {
             Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{msg}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }
